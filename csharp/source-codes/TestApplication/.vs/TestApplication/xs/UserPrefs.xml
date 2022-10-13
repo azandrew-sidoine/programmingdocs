@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{48ACA93E-23D5-4A47-9913-3AB4D447AE44}|Default">
+  <MonoDevelop.Ide.ItemProperties.TestApplication PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestApplication/MethodOverloadClass.cs">
+    <Files>
+      <File FileName="TestApplication/Program.cs" Line="13" Column="6" />
+      <File FileName="TestApplication/EmptyClass.cs" Line="21" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TestApplication" expanded="True">
+            <Node name="TestApplication" expanded="True">
+              <Node name="MethodOverloadClass.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

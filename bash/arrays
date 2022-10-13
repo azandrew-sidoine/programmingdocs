@@ -1,0 +1,17 @@
+#! /bin/sh
+
+arr=(1 2 3 4)
+
+printf 'List size: %d\n' ${#arr[*]}
+
+# Printing each element of the list
+for element in ${arr[@]}; do
+    echo "Element: $element"
+done
+
+# Get all indexes
+indexes=${!arr[*]}
+echo "Printing indexes..."
+for index in ${indexes[@]}; do
+    echo "Element: $index"
+done

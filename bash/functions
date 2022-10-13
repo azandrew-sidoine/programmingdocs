@@ -1,0 +1,50 @@
+#! /bin/sh
+
+# Simple hello world function
+echo 'Calling hello_world function'
+function hello_world()
+{
+    echo 'Hello suckers!'
+}
+
+# Calling the hello_world function
+hello_world
+
+echo ''
+echo 'Calling hello_world2 function'
+hello_world2()
+{
+    echo 'Hello suckers!'
+}
+hello_world2
+
+# Variables in functions
+num1=10
+num2=20
+
+echo ''
+echo 'Functions scope'
+function func_scope()
+{
+    # Variable num1 is not change because the next line declaration is scoped to the function
+    local num1=5
+    echo "$((num1 + num2))"
+    # Variable 2 is modified because declaration is missing local keyword
+    num2=45
+}
+
+# Calling the sum function
+func_scope
+
+echo "Variables Number1=$num1, Number2=$num2"
+
+# Functions with parameters & return value
+echo ''
+echo 'Functions scope'
+function sum
+{
+   return $(($1 + $2))
+}
+sum 2 3 4
+result=$?
+echo "Result=$result"

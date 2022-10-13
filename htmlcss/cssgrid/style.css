@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    --body-background-color: #333;
+    font-family: Raleway;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+    background-color: var(--body-background-color);
+}
+
+.grid-item::before {
+    content: "GRID ITEM";
+    /* position: absolute; */
+    font-size: 24px;
+    font-weight: bold;
+    top: 10px;
+    left: 15px;
+}
+
+.grid-item::after {
+    /* position: absolute; */
+    font-size: 25px;
+    top: 10px;
+    right: 15px;
+    font-weight: bold;
+}
+
+.grid-item-1::after {
+    content: "1";
+}
+
+.grid-item-2::after {
+    content: "2";
+}
+
+.grid-item-3::after {
+    content: "3";
+}
+
+/* GRID CONTAINER */
+.grid {
+    /* display is grid */
+    display: grid;
+    /* Grid Template fraction : Defines the number of fraction the grid */
+    /* elements will occupy (1fr === 1flex-grow)*/
+    /* grid-template-columns: 2fr 1fr; */
+
+    /* Repeat : Defines the number of element per colunms repeat(n, size)*/
+    grid-template-columns: repeat(4, 1fr);
+
+    /* Rows*/
+    /* grid-template-rows: Works the same as grid-template-columns but rowise; */
+    /* grid-auto-rows: 150px|minmax(min, max|auto); -> Defines 150px for each row*/
+
+    /* Space rowise */
+    row-gap: 10px;
+    /* Space column wise */
+    column-gap: 10px;
+    /* Space row and column wise */
+    gap: 10px;
+
+    /* Grip template areas: Create a template string where to put items */
+    grid-template-areas: 'header header' 'sidebar content';
+
+    /* justify-content: center|space-around|start|end|etc...; */ /* Just like with flexbox*/
+    align-items: center;
+
+}
+
+/* .grid-item-1 {
+    grid-column: 1 / -1; span n -> Span n columns
+    grid-column-start: 1;
+    grid-column-end: -1;  Span to the end of the column 
+    grid-area: header;
+} */
+
+/* .grid-item-1 {
+    align-self: center|start|end|strech;
+    justify-self: center|strech|space-around;
+    grid-row: 1 / -1; span 1 -> Span 1 row
+    grid-row-start: 1;
+    grid-row-end: -1;  Span to the end of the column 
+    grid-area: header;
+} */
+/*
+.grid-item-2 {
+    grid-area: sidebar;
+}
+
+.grid-item-3 {
+    grid-area: content;
+} */

@@ -1,0 +1,12 @@
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/bin/Debug/netcoreapp3.1/TestApplication.deps.json
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/bin/Debug/netcoreapp3.1/TestApplication.runtimeconfig.json
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/bin/Debug/netcoreapp3.1/TestApplication.runtimeconfig.dev.json
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/bin/Debug/netcoreapp3.1/TestApplication.dll
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/bin/Debug/netcoreapp3.1/TestApplication.pdb
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.csprojAssemblyReference.cache
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.AssemblyInfoInputs.cache
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.AssemblyInfo.cs
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.csproj.CoreCompileInputs.cache
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.dll
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.pdb
+/Users/azandrewsidoine/Workspace/code-testing/csharp/source-codes/TestApplication/TestApplication/obj/Debug/netcoreapp3.1/TestApplication.genruntimeconfig.cache
