@@ -16,7 +16,6 @@ The `Application class` represent a JavaFx application instance. Any javafx appl
 > `start(State  stage)` -> Looks like the initialization method of the application. This is where application bootstrap codes must be called.
 
 **Note**
-
 `Stage` -> Screens of JavaFX applications, are called `Stage` , we represent a view in JavaFx application.
 `Scene` -> It's the current frame of the application view
 
@@ -60,9 +59,9 @@ public class AppName extends Application
 You must always construct and modify the Stage and its scene objects on the JavaFX Application Thread. Note that JavaFX (like Swing) is a single-threaded UI model.
 
 **Warning**
-Any Long running task on a UI thread will likely block the Application, thus long running task, or async task must be delegated to it own thread or use concurrency model.
+    Any Long running task on a UI thread will likely block the Application, thus long running task, or async task must be delegated to it own thread or use concurrency model.
 
-    **Note**
+**Note**
     Fortunately, JavaFX has a well-developed concurrency API that helps developers assign long-running tasks to one or more separate threads.
 
 > `State` -> `Scene` -> `JavaFx Elements Tree`
@@ -188,6 +187,30 @@ The `HBox` and `VBox` layout controls respectively provide single `horizontal` o
 
 `ButtonBar` is convenient for placing a row of buttons of equal size in a horizontal container. It act like a `button group` component.
 
+#### ListView
+
+A listview is a special control for presenting a list of items. ListView component is optimize to large list of data and update on each value changes of it items.
+
+> `ListView.getSelectionModel().getSelectedItems()` -> Return the selected items from the `ListView` class.
+
+```java
+// Making the listview support multiple selection
+// listview.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+// Listening to selectedItem event dispatcher.
+listview.getSelectionModel().selectedItemProperty().addListener(
+    itemSelectedListener = (observable, oldValue, newValue) -> {
+        if (newValue != null) {
+            // Case an item is selected
+        } else {
+            // If the selected item returns null
+        }
+    }
+);
+```
+
+**Note** By default, `ListView` provide a single selection model.
+
 ### Controls
 
 **Note** Any method defines here is applicable to any control element
@@ -231,7 +254,7 @@ text.setFont(new Font("Arial Bold", 24));
 > `Color.web('#hex')` -> Create a JFX color using web color standard
 > `Color.rgb(R, G, B, opacity)` -> Create JFX color using web standard
 
-#### Gradient
+#### Gradient ``
 
 Gradients give depth to a shape and can be either radial or linear.
 
@@ -254,11 +277,11 @@ LinearGradient gradient = new LinearGradient(0, 0, 0, 1, true,
 **Note**
 `Boolean` true indicates the gradient stretches through the shape (where 0 and 1 are proportional to the shape), and `NO_CYCLE` means the pattern does not repeat. Boolean false indicates the gradient’s x and y values are instead relative to the local coordinate system of the parent.
 
-* Linear Gradient
+* Linear Gradient `javafx.scene.paint.LinearGradient`
 
 `Linear gradients` require two or more colors, called Stops. A gradient `stop` consists of a color and an offset between 0 and 1.
 
-#### DropShadow
+#### DropShadow `javafx.scene.effect.DropShadow`
 
 They are effects that can be added to control to add a `box shadow` to the control.
 
@@ -271,7 +294,6 @@ They are effects that can be added to control to add a `box shadow` to the contr
 A reflection effect mirrors a component and fades to transparent, depending on how you configure its top and bottom opacities, fraction, and offset.
 
 > `Reflection.setFraction()` -> Reflection fraction of the reflected object
-
 > `Reflection.setTopOffset()` ->  The offset specifies how far below the bottom edge the reflection starts in pixels
 
 ```java
@@ -290,7 +312,7 @@ JavaFX makes animation very easy when you use the built-in transition APIs. Each
 
 ### Transition
 
-It is the base class for most transition in the Fx framework. 
+It is the base class for most transition in the Fx framework.
 
 **Note**
 If a transition is applied on a Group of controls, all element of the control will inherit the animation when it start.
@@ -307,6 +329,8 @@ If a transition is applied on a Group of controls, all element of the control wi
 > `new RotateTransition(Duration d, Control c)` -> Creates a new rotate animation
 
 ```java
+import javafx.util.Duration;
+
 // Define RotateTransition
 RotateTransition rotate = new RotateTransition(
                 Duration.millis(2500), new StackPane());
@@ -400,7 +424,6 @@ rotate.statusProperty().addListener(
 **Note**
 We can see that using a lambda expression, difference between invalidation and change listeners is a matter of parameter lists.
 
-
 ### Property Binding
 
 JavaFX binding is a flexible, API-rich mechanism that lets you avoid writing listeners in many situations. You use binding to link the value of a JavaFX property to one or more other JavaFX properties.
@@ -429,6 +452,8 @@ Unlike bind(), you can explicitly set either property when using bidirectional b
 The fluent and bindings APIs help you construct bind expressions when more than one property needs to participate in a binding or when it’s necessary to perform some sort of calculation or conversion.
 
 ```java
+import javafx.beans.binding.When;
+
 // The rotate property of the stack pane is of float type, therefore, the value must be modify before setting the text property of the text2 control
 text2.textProperty().bind(stackPane.rotateProperty().asString("%.1f"));
 
@@ -440,3 +465,154 @@ text2.strokeProperty().bind(new When(rotate.statusProperty()
                .isEqualTo(Animation.Status.RUNNING))
                .then(Color.GREEN).otherwise(Color.RED));
 ```
+
+### An MVC Pattern
+
+JavaFX & FXML follow the MVC (Model View Controller) pattern to implements User Interface.
+
+* View
+    View implement using a specialized markup XML language (FXML, [`.fxml`]) that provides bindings to generate javafx classes
+* Controller
+    It's the code behing the view providing business logic for manipulating view and data
+* Model
+    Application state layer handling state persistence, and queries.
+
+#### FXML
+
+**Note**
+    - `id` property can be added to a control in order to select it in the component later using `fx:id="<ID>"` syntax.
+    - JFX dependant binding are prefix with `fx:`, like `controller` -> `fx:controller`
+    - JFX component must be imported before used in the XML file
+    - event handlers are prefix with `#` symbol to indicate a binding. The function in the controller must be annoted with `@FXML`
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Import javafx classes -->
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<!-- ... -->
+
+<!-- Scene view definitions -->
+<VBox stylesheets="@../styles/Styles.css" alignment="CENTER" prefHeight="350.0" prefWidth="350.0" spacing="50.0" xmlns="http://javafx.com/javafx/19.0" xmlns:fx=http://javafx.com/fxml/1 fx:controller="dev.domain.ControllerClass">
+    <children>
+        <StackPane styleClass="defaultStack" fx:id="stackPane" prefWidth="" prefHeight="" onMouseClick="#handleMouseClick">
+            <children>...</children>
+        </StackPane>
+    </children>
+</VBox>
+```
+
+#### Controller
+
+In the controller class, selecting an id property is done using the @FXML annotations:
+
+```java
+// Imports ...
+import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class FXMLController implements Initializable  {
+
+    @FXML
+    private Text text; // Assume there is a <Text fx:id="text" text=""> on the fxml
+
+    @Override
+    // This method is invoked by javafx runtime when the scene is loaded
+    public void initialize(URL url, ResourceBundle r)
+    {
+        // Handle initialization of the controller
+    }
+
+    @FXML
+    public void handleMouseClick(MouseEvent mouseEvent)
+    {
+        // Handle mouse click event in the controller class
+    }
+}
+```
+
+**Note**@FXML
+It annotate variables and method of the controller class to make them available to the FXML markup script.
+
+#### Adding CSS to application
+
+**Note** JavaFx style sheet property are the same as web style sheet prefix with the `-fx-` as prefix.
+
+To use the style sheet, we must first load it in the `Application.start()` method:
+
+```java
+    // This example expect Styles.css to be located in /resources/styles/ directory
+    // Load the Styles.css to the scene for it to be usable by controls
+    scene.getStylesheets().add(getClass().getResource("/styles/Styles.css").toExternalForm())
+```
+
+Then when the style is added developper can apply style to a given node:
+
+```java
+    node.getStyleClass().add("class-name"); // Note: correspond to `styleClass="class-name"` in FXML script
+```
+
+## Finals
+
+### Observable Pattern
+
+JavaFx framework comes with an observable pattern allowing developper for create object with properties that can be bind to listen for changes. It helps in implementing observer patter without the hustle to implement and maintain the code oneself.
+
+* Observable `javafx.beans.Observable` -> Base abstraction that helps implementing the INotifier pattern
+
+> Simple[Type]Propery `javafx.beans.SimpleStringProperty` -> A class that help creating a value of type string with the ability to notify changes to class users through property getters a.k.a `propProperty`
+
+```java
+import javafx.beans.Observable;
+import javafx.beans.SimpleStringProperty;
+import javafx.beans.StringProperty;
+import javafx.util.Callback;
+
+import java.util.Objects;
+
+
+public class Person {
+
+    private StringProperty firstname = new SimpleStringProperty(this, "fistname", "");
+
+    public StringProperty getFirstnameProperty() {
+        return firstname;
+    }
+
+    public void setFirstName(String value) {
+        firstname.set(value);
+    }
+
+    public getFirstname() {
+        return firstname.get();
+    }
+
+       @Override
+    public String toString() {
+        return firstname.get(); //  + " " + lastname.get();
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Person person = (Person) obj;
+        return Objects.equals(firstname, person.firstname); //&&
+                // Objects.equals(lastname, person.lastname) &&
+                // Objects.equals(notes, person.notes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname); //, lastname, notes);
+    }
+}
+```
+
+**Note**Observable Lists
+When working with JavaFX collections, you’ll typically use ObservableLists that detect list changes with listeners.
+
+`javafx.scene.layout.ListView` component expect an `ObservableList` as item property in order to automatically update the component on list changes.
