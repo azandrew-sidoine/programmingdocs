@@ -81,3 +81,87 @@ class Main {
 }
 
 ```
+
+## Java advance Custom annotations
+
+### Class Annotations
+
+They are annotations that get apply to classes.
+
+* `@Target(ElementType.TYPE|ElementType.METHOD|ElementType.FIELD)`
+
+```java
+import java.lan.annotation.ElementType;
+
+@Target({ElementType.TYPE})
+public @interface AnnotationClass {
+    // Annotation code
+}
+```
+
+Which Java Type the class must be applied on. It is used to restrict annotation to a class, method or property.
+
+* `@Retention`
+
+Tell Java a which stage of the application lifetime the annotion should be retain (Whether at build time or at runtime).
+
+```java
+import java.lan.annotation.ElementType;
+import java.lan.annotation.Retention;
+import java.lan.annotation.RetentionPolicy;
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+// RetentionPolicy.SOURCE -> annotation is remove before Java compiles codes
+// RetensionPolicy.CLASS -> annotation is remove after code compilation. annotation is not available at runtime
+public @interface AnnotationClass {
+    // Annotation code
+}
+```
+
+* Parameterized Annotation
+
+Parameters of the annotations are defined using method instead of fields.
+
+```java
+public @interface MyAnnotation {
+  boolean required();
+}
+
+// Using the annotation
+@MyAnnotation(required=true)
+```
+
+**Warning**
+Only primitives, `java.lang.String` and `java.lang.Array` types can be used.
+
+-- default value annotation
+
+```java
+public @interface MyAnnotation {
+  boolean required() default true;
+}
+
+// Using the annotation
+@MyAnnotation(required=true)
+```
+
+**Note**
+To get annotation using on a given class, method or field, we use Java reflection API `getAnnotation()`
+
+```java
+for (Method method: Person.class.getDeclaredMethods()) {
+  if (method.isAnnotationPresent(MyAnnotation.class)) {
+    MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
+    // Getting annotation parameters is now easy as:
+    // annotation.required();
+  }
+}
+```
+
+```java
+@Target()
+public @interface AnnotationClass {
+
+}
+```
