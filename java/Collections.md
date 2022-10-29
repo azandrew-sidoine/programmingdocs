@@ -269,14 +269,13 @@ LinkedList<Type> linkedList = new LinkedList<>();
 Note:
   LinkedList as Deque and Queue:
 
-    Since the LinkedList class also implements the Queue and the Deque interface, it can implement methods of these interfaces as well.
+Since the LinkedList class also implements the Queue and the Deque interface, it can implement methods of these interfaces as well.
 
 --- LinkedList Vs. ArrayList
 
-    Both the Java ArrayList and LinkedList implements the List interface of the Collections framework. However, there exists some difference between them.
+Both the Java ArrayList and LinkedList implements the List interface of the Collections framework. However, there exists some difference between them.
 
   To iterate over a LinkedList, we can use the for each loop
-  
 
 #### Java ArrayDeque
 
