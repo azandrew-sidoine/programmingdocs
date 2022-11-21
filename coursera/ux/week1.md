@@ -168,13 +168,13 @@ Cons:
 
 * Inclusive design
 
-Focus solution to meet different needs. Making design choice taking into account personnal identifiers like, `ability`, `race`, `economic status`, `Language`, etc... It seeks to build product that meet the need of group of customers that has historically been excluded.
+Focus solution to meet different needs. Making design choice taking into account personnal identifiers like, `ability` , `race` , `economic status` , `Language` , etc... It seeks to build product that meet the need of group of customers that has historically been excluded.
 
 Pros:
   + Solve for one and extends to many
 
 **Note** Accessibility
-The state of design of products, devices, services, or environments for people with disabilities. It's one aspect of `Inclusive design`.
+The state of design of products, devices, services, or environments for people with disabilities. It's one aspect of `Inclusive design` .
 
 * Equity-focus design
 
