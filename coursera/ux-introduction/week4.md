@@ -158,7 +158,7 @@ Cons:
 
     -- It only measure how easy the product is to use
     -- Expensive because conduct in person
-    -- There can be differences between a “controlled” usability study in a lab versus how a user experiences the product in their real life. 
+    -- There can be differences between a “controlled” usability study in a lab versus how a user experiences the product in their real life.
 
 ### Secondary research methods
 
@@ -182,3 +182,57 @@ Cons:
 [https://www.nngroup.com/articles/which-ux-research-methods/]
 
 ## Type of bias in UX Research
+
+What is a Bias ?
+
+It's an attitude of favoring or having prejudice against something based pn limited information.
+
+**Note**
+Biases can seriously impact your user research and negatively influence the design of your final product.
+
+### Preventing bias in data collection
+
+- Choose words carefully
+  While conducting research, it’s important to use words that don’t lead the user in one direction or another. Of course, as a designer, you’re going to be partial to the designs you’ve created, and you’ll likely assume that users will appreciate them too.
+
+**Note**
+Choosing leading words can cause the framing effect, where users make a decision or choice based on the way information was presented to them. But that is not the end result you want for your research.
+
+- Foster independent thinking
+  Group interviews can be affected by the bandwagon effect, or going along with the group’s opinion instead of thinking creatively, which can discourage open discussion by people who have an opinion that doesn’t align with the majority of the group.
+
+**Note**
+For example, imagine you’re conducting research with a group of five participants. You ask each person in the group to share their thoughts one at a time about a particular product design choice, like the placement of a button on the home page. By the time the last person shares their thoughts, their feedback will be affected by all of the answers that were shared before them. To combat the bandwagon effect, ask participants to write down or record their thoughts before discussing as a group.
+
+- Avoid specific language
+  It’s important to be mindful about the types of questions you ask users and how those questions are framed. You’ll need to be careful to avoid `confirmation bias`, which is trying to find evidence to prove a hypothesis you already have.
+
+- Limit the guidance you give users (Consensus bias)
+  Everyone learns and thinks in different ways. When you’re conducting any type of UX research, you have to be cautious to avoid experiencing any `false consensus`, which is the assumption that others will think the same way as you do.
+
+**Note**
+It’s important to let participants follow their own paths through your product, without interrupting them. Interrupting a participant while they’re experiencing your product will deprive you of useful data that can help you understand how to improve your designs. Instead, ask participants to narrate or break down their user journey with your product, as they move through the flow.
+
+- Consider users’ tone and body language
+You’ll work with many different users and participants throughout your UX career, and part of your job will involve interpreting their nonverbal cues, like vocal tone and body language. To avoid experiencing implicit biases, which are based on the collection of attitudes and stereotypes you associate with people without your conscious knowledge, it’s important to clarify when you think you’re getting mixed signals from a participant.
+
+**Note**
+Asking questions like `“Is any of this making you uncomfortable?”`, encourages, who might have defensive or insecure feedback about a product, to explain that it’s cold in your office and they’re just trying to warm themselves up.
+
+- Be careful of your own body language and reactions
+  You also have to be mindful of your own tone and body language while interacting with participants. `Social desirability bias` can happen when a participant answers a question based on what they think you want to hear. If you ask a question to a participant, and they notice you exhibiting a visual or audible clue that suggests your own opinion about the question, they might answer in a way that they think will please you.
+
+**Note**
+For example, imagine you’re describing a feature of the app you’ve designed that really excites you, and your tone of voice changes. If this happens, it’s likely that the participant won’t be honest about their negative opinions of the feature, since you’re so positive about it. If you want the data you collect to be useful, the user has to feel comfortable sharing their true, unfiltered feelings about the product. It’s your job to guide them through the process without accidentally influencing their answers. One way to do this is to reassure participants that their answers won’t hurt anyone’s feelings and that you really want to hear their honest opinions in order to improve your work.
+
+- Plan your research effectively
+Tight deadlines are inevitable. But as a UX designer, it’s essential you get enough time to recruit the right users for your research. `Availability bias` occurs when you rush the user recruitment process or skip screener questions to attract a bigger pool of users, even if they don’t fit the qualifications or characteristics that you’ve already determined are present in your ideal user.
+
+- Remain open minded
+One more tip: When you’re conducting research, you have to work hard to treat all information equally to avoid both `primacy bias`, which is remembering the first user more than others, and `recency bias`, `which is most easily remembering the last thing you heard`. To help combat these biases in your own research, it’s helpful to space out the scheduling of interviews, ask your colleagues to join you during interviews to provide additional opinions, and take careful notes.
+
+**More Info**
+[https://npr.design/overcoming-cognitive-bias-in-user-research-e4082f4506a]
+
+Rewards:
+[https://www.coursera.org/learn/foundations-user-experience-design/course-inbox]
