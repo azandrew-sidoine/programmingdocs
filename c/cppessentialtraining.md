@@ -6,10 +6,10 @@
 %u -> Unsigned integer values
 %s -> For string values
 %c -> For characters
-%lu -> Long unnsigned integer
+%lu -> Long unsigned integer
 %lf -> Floating point
-%Lf ->  Long double floats.
-%08 -> Hex value format
+%Lf -> Long double floats.
+%08 -> Hex value format -> Hexadecimal output format
 %zd -> sizeof format
 
 ## Basic Syntax
@@ -41,9 +41,10 @@ puts("Text to print...");
 
 -- Identifiers
 
-C++14 and C++17  have 73 keywords along with  some  alternative tokens [and,or,and_eq,bitand,bitor,compl,xor_eq,xor,or_eq,not,not_eq].
+C++14 and C++17 have 73 keywords along with some  alternative tokens [`and, or, and_eq, bitand, bitor, compl, xor_eq, xor, or_eq, not, not_eq`].
 
-Note: As c++ variable without initialization are undefined, it's advice  to initialize variable at declaration time to avoid  null pointer exceptions.
+**Warning**
+As C++ variable without initialization are undefined, it's advice to initialize variable at declaration time to avoid null pointer exceptions.
 
 --- Private identifiers
 
@@ -51,16 +52,16 @@ Note: As c++ variable without initialization are undefined, it's advice  to init
 
 --- Qualifiers
 
-- const -> Use to defined constant or compile time constant.
+- `const` -> Use to defined constant or compile time constant.
 
 -- Pointers
 
-A variable is a type and named location in memory.
+C++ Pointer holds a `reference` or `address` to a given variable during program execution.
 
 ```cpp
 int x;
 x = 1;
-int y = x; // Create  a copy of the  value of x into the memory location named y
+int y = x; // Create a copy of the  value of x into the memory location named y
 
 // Defining pointers
 int *y_prt;  // Create a pointer to a memory address that can hold integer values
@@ -70,7 +71,10 @@ y =  *y_prt; // *y_ptr return the value pointed to by y_ptr. It's called the val
 
 -- References (C++ only)
 
-The are like pointers with slight deference.  Pointers can point to multiple thing at time, while references point to a single variable through  program execution. Reference are  not type like pointers.
+The are like pointers with slight deference.
+
+**Note**
+At runtime `pointers` can point to different variable during program execution, while `references` point to a single variable through program execution. `Reference are not type like pointers`.
 
 ```cpp
     int x = 0;
@@ -86,7 +90,7 @@ The are like pointers with slight deference.  Pointers can point to multiple thi
 
 -- Primitive  array
 
-It's inherited from c-array. It's a fixed sized container of elements of same size.
+It's inherited from `c-array`. It's a fixed sized container of elements of same type.
 
 ```cpp
     int  list[ARRAY_SIZE];
@@ -97,10 +101,11 @@ It's inherited from c-array. It's a fixed sized container of elements of same si
     // Assigning values by index
     list[0] =  1;
 
-    // Initializing array first index  value
+    // Initializing array first index value
+    // *list point to list[0]
     *list =  1;
 
-    // Creating a pointer to an array. Note: This does not required reference (&) operator as array are passed by  reference.
+    // Creating a pointer to an array. Note: This does not required reference (&) operator as array are passed by reference.
     int  *list_ptr = list;
 
     ++list_prt; // This point to the next element of an array
@@ -109,7 +114,7 @@ It's inherited from c-array. It's a fixed sized container of elements of same si
 
 --  Primitive string (Null terminated strings)
 
-It's a cstring, that is an array of characters. they  must end with  a 0 at the end of the string or '\0'.
+It's a `c-string`, that is an array of characters. they must end with a `0` at the end of the string or `'\0'`.
 
 ```cpp
 char s[] = {'S', 't', 'r', 'i', 'n', 'g', 0};
@@ -121,7 +126,7 @@ printf("String is: %s\n", s);
 
 C++ has  if...else statements and ternary  operator for hanndling conditions branching.
 
-In C++ logical values  are  evaluated to  0 or 1, as a any  non zero value is evaluated as true.
+In C++ logical values  are  evaluated to `0` or `1`, as a any  non zero value is evaluated as true.
 
 ```cpp
     bool result = condition ? rvalue1 : rvalue2;
@@ -129,7 +134,7 @@ In C++ logical values  are  evaluated to  0 or 1, as a any  non zero value is ev
 
 -- Conditional branching (Switch)
 
-Note: C++ case statements requires constant  values.
+**Warning** C++ case statements requires constant values.
 
 -- while and do...while loops
 
@@ -147,7 +152,7 @@ for (int  i = 0; i < MAX_VALUE; ++i)
 
 char string[] = "abcdefg";
 
-for (char *string_ptr; *string_ptr; ++string_ptr)
+for (char *string_ptr = string; *string_ptr; ++string_ptr)
 {
     // Execute on each iteration while pointer point of non zero value;
 }
@@ -194,9 +199,10 @@ std::cout << "Hello World!";
 ---- [unsigned] long int -> Double the  size of the default integer type (64bits or 32  bits)
 ---- [unsigned] long long int -> it may double the  size of int (64bits)
 
-Note: If int  is  omitted, the  variable is still consider a short, long, long long  int.
+**Note**
+If int  is  omitted, the  variable is still consider a short, long, long long  int.
 
-C-defined data types  for integers requires <cstdint> library provide fixed  size integers:
+`C-defined` data types for integers requires <cstdint> library provide fixed  size integers:
 
 ```cpp
 int8_t  x; //  uint8_t  for  unsigned (8bits)
@@ -205,7 +211,8 @@ int32_t  x; //  uint32_t  for  unsigned (32bits)
 int64_t  x; //  uint64_t  for  unsigned (64bits)
 ```
 
-Note: [sizeof] return the sizeof the integer in  term of bits.
+**Note**
+[sizeof] return the sizeof the integer in term of bits.
 
 Note:  
 
@@ -217,7 +224,7 @@ int octal_64 = 0223;
 int hexa_64  =  0x0093;
 
 // Unsigned values
-unsigned int x =  147U;
+unsigned int x = 147U;
 // Unsigned long values
 unsigned long int x =  147UL;
 // Unsigned long long values
@@ -240,15 +247,15 @@ long double ldf;  // 128 bits  // on 80bits (on IEEE standard) will be used  or 
 f = 5e20 ; // Scientific notation  of  the  floating point number
 ```
 
---- C-string (Null Terminated  array of characters)
+--- `C-string` (Null Terminated  array of characters)
 
-C-strings are null terminated string that may differ from the C++ object string type.
+`C-string` are null terminated string that may differ from the C++ object string type.
 
 ```cpp
 char cstring[] = "Litteral String";
 
 // Const Pointer to a character array
-const char *cchar = "Litteral String"; // Pointer to an array that can not be changed
+const char *char_ptr = "Litteral String"; // Pointer to an array that can not be changed
 
 for (uint32_t i = 0; cchar[i]; ++i) {
     // Print or do something with the string
@@ -270,15 +277,32 @@ Example: \n, \", \', \\
 They are used to adjust quality of an object or a variable.
 
 > CV qualifiers [`const, volatile, mutable`]
->> const -> for immutable data type
->> volatile -> variable that may be change by another process (threading)
->> mutable -> makes data writable from a const function call
-
+>> `const` -> for immutable data type
+>> `volatile` -> variable that may be change by another process (threading)
+>> `mutable` -> makes data writable from a const function call
 > Storage duration qualifier [`static, register, extern`]
->> static -> variable scope behond the execution block where they are defined. They are store globally. Their lifetime is the lifetime of the program. Used to create shared memory variables.
 
->> register -> They are saved in processor memory
->> extern -> They are defined in separate translation unit linked at compile time.
+---- Static qualifiers `static`
+
+`static` variable scope behond the execution block where they are defined. They are store globally.
+Their lifetime is the lifetime of the program.
+
+**Note**
+Only use static to create shared memory variables.
+
+---- Register qualifiers `register` [`Deprecated C++11`]
+
+They  are saved in processor memory. Fast to process by the computer, but must be small in size due to processor cache
+size limit.
+
+---- Extern qualifiers `extern`
+
+They are defined in separate translation unit linked at compile time.
+
+---- Thread local safe `thread_local`
+
+Thread-local storage is a mechanism by which variables are allocated such that there is one instance of the variable per extant thread.
+
 
 ```cpp
 // Create a static compile time constant
@@ -289,11 +313,13 @@ const static x = value;
 
 -- References
 
-Note: Prefer  usage of const reference to a avoid side effects
+**Note**: Prefer usage of `const reference` to a avoid side effects
+
+Syntax: `const DType& my_func(const DType& params) { /* ... */ }`
 
 ```cpp
 // This func does not update the value of i param passed in
-const int& func(const int& i  ) {
+const int& func(const int& i ) {
     // Here we set i to a new value in order to modify it
     int _i = i;
     return ++_i;
@@ -370,7 +396,10 @@ union ipv4 {
 --- Typedef
 
 Helps in providing alias for a type in a statically  type language.
-By convention end C++ types definitions with  [_t]
+By convention end `C++` types definitions with  [_t]
+
+**Note**
+Works like `type` keyword of the typescript language construct.
 
 ```cpp
 // Defining type using type definition
@@ -398,7 +427,7 @@ void func( void ) {
 
 --- Auto type
 
-Begining with C++ for defining variable that get it type from a r_value of the right side expression. It's like := in go.
+Begining with C++ for defining variable that get it type from a r_value of the right side expression. `It's like := in go`.
 
 ```cpp
 #include <cstdio>
@@ -425,7 +454,7 @@ int main()
 
 --- Unambiguous null pointer constant
 
-[nullptr], in C++ is defined as a null pointer constant or a null pointer value, that helps solving issue with function amiguity when overloading fuctions. It's a pointer of any value.
+[nullptr], in `C++` is defined as a `null pointer constant` or a `null pointer value`, that helps solving issue with function amiguity when overloading fuctions. It's a pointer of any value.
 
 ```cpp
 #ifndef NULL
@@ -482,7 +511,7 @@ std::int_fast64_t pow(int base, int exp)
 const char* u8_to_cstr(const uint8_t& x)
 {
     static char buff[sizeof(x) * 8 + 1];
-    for (char& c : char) {
+    for (char& c : buff) {
         c = 0; // Reset the buffer
     }
     char* buf_ptr = buf;
@@ -494,22 +523,20 @@ const char* u8_to_cstr(const uint8_t& x)
 ```
 
 > [lhs ? "true": "false"] (Ternary conditional operator)
-
 > [new, delete] (Dynamic memory operator) -> Specific to C++
-Note: Every object initialized with new must be delete with delete otherwise program must leak memory.
-
+**Note** `Every object initialized with new must be delete with delete otherwise program must leak memory`.
 > (type) (Type casting operator for taking a value from one type to another type explicitly)
 
-Note: Types being casted must be compatible
+**Note** `Types being casted must be compatible`
 
-> sizeof(object) (Use for determining the size of an object in bytes)
+> `sizeof(object)` (Use for determining the size of an object in bytes)
 
 ```cpp
 size_t = sizeof(x);
 printf("Size of x is %zd\n", x);
 ```
 
-> typeid(object) (Returns a type info oject defined in <typeinfo> for getting the type of an object)
+> `typeid(object)` (Returns a type info oject defined in <typeinfo> for getting the type of an object)
 
 ```cpp
 struct Point {
@@ -552,7 +579,7 @@ r_type func()
 
 --- Storage class and functions
 
-Storage  quantifier of a function variable is automatic, and will live temprorary on the stack created during function execution. If one want to persist the state  of the variable use the [static] storage modifier.
+Storage  quantifier of a function variable is automatic, and will live temprorary on the stack created during function execution. If one want to persist the state of the variable use the [static] storage modifier.
 
 Also, auto is not allowed in functions other that [main()] from C++11.
 
@@ -578,7 +605,9 @@ int main()
 
 --- Using function pointer
 
-It create a reference type to a function
+It create a reference type to a function:
+
+> <TReturn> (*<POINTER_VARIABLE>)([...<T_FUNC_PARAMETERS>]) [= &<FUNC_NAME>];
 
 ```cpp
 
@@ -591,8 +620,8 @@ const string& func()
 
 int main()
 {
-    string (*pfuncs[])() = {func, func};
-    string* pfunc() = func; // This is like creating a closure in PHP
+    const string& (*pfuncs[])() = {func, func};
+    const string& (*pfunc)() = func; // This is like creating a closure in PHP
     // calling the function
     printf("Function pointer  result is %s", pfunc());
 }
@@ -635,7 +664,7 @@ int message(const char* fmt, ...)
 
 ### Classes and objects
 
-C++ classes derives from C++ structs, with the difference that data members in classes are private  by default while being public in Structs.
+`C++ classes` derives from `C++ structs`, with the difference that `data members in classes are private` by default while being `public in Structs`.
 
 Use struct when the data structure has only data members and classes when data structure has behaviour (function) members.
 
@@ -707,7 +736,6 @@ class Point
 }
 
 // Class implementations
-
 Point::Point() const: _x(0), _y(0);
 
 // Copy constructor 
@@ -744,6 +772,8 @@ int main()
 ```
 
 --- Operators overloading
+
+> <CLASS_TYPE>& operator <OVERLOADED_OPTERATOR> ([...<FUNCTION_PARAMETERS>])
 
 ```cpp
 class Rational
@@ -810,7 +840,7 @@ Rational operator + (const Rational& lhs, const Rational& rhs)
 
 ### C++ Templates
 
-C++  approach to genneric programming.
+C++  approach to generic programming.
 
 --- Function templates
 
@@ -821,7 +851,7 @@ T func(T param) {
 }
 ```
 
---- Function templates
+--- Class templates
 
 ```cpp
 template <typename T>

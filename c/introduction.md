@@ -26,7 +26,7 @@ std::string variable;
 std::cin >> variable;
 
 // New line
-std::cout  << 'Hello  World!  \n";
+std::cout  << "Hello  World!  \n";
 ```
 
 ## Variable definitions and Data  Types
@@ -42,11 +42,11 @@ std::cout  << 'Hello  World!  \n";
 
 Note: Comparing the c/c++ char, makes the computer compare their ascii value correspondants.
 
-Note: As rule of thumb, initialize  variables as we declare them, cause the compile does not clean pre-allocated memory values. Therefore it can happen that if the variable is not initialized, the compiler will assign garbaged values to it.
+Note: As rule of thumb, initialize  variables as we declare them, cause the compiler does not clean pre-allocated memory values. Therefore it can happen that if the variable is not initialized, the compiler will assign garbaged values to it.
 
 ## Storage of data in memory
 
-C++ offer a casting function that  can be used calling static_cast:
+C++ offer a casting function that can be used calling `static_cast`:
 
 ```cpp
 // Arithmetic operator
@@ -60,7 +60,7 @@ int remainder  =  std::static_cast<int>(a % b);  // Cast the modulo  value to in
 // fabs() -> floating point number absolute function
 
 // Random number generator
-srand(time(0)); // Create a random number generator  seeder since epoch
+srand(time(0)); // Create a random number generator seeder since epoch
 rand(); // Generate random generator
 ```
 
@@ -68,11 +68,15 @@ rand(); // Generate random generator
 
 Declaration:
 
+> <CONST> <DATA_TYPE> <VARIABLE> = <INITIALIZED_VALUE>;
+
 ```cpp
-const  int MAX_CONSTANT_NUMBER = 'Constant_Value';
+const int MAX_CONSTANT_NUMBER = 'Constant_Value';
 ```
 
 Manipulating Input and Output:
+
+> std::cout.setf() -> Set the standard output format
 
 ```cpp
 // Inculde the manipulation library headers
@@ -86,7 +90,7 @@ std::cout.setf(ios::showpoint);
 std::out << "Description"  << setprecision(2) << var <<> "\n";
 ```
 
-## Working with Time
+## Working with Time <`cstdlib`>
 
 Working with  time requires including c stanndard library
 
@@ -104,7 +108,7 @@ int main()
 
 Declaration:
 
-> DataType varname[size];
+> [<CONST_MODIFIER>] <DATA_TYPE> <VARIABLE>[SIZE] [= <INITIAL_VALUE>]
 
 ```cpp
 string players[10];
@@ -117,7 +121,8 @@ players[2]  = "Player_3_Updated";
 ```
 
 Multi dimentionnal array
-> DatType varname[x][y];
+
+> [<CONST_MODIFIER>] <DATA_TYPE> <VARIABLE>[<X_DIMENSION_SIZE>][<Y_DIMENSION_SIZE>] [= <INITIAL_VALUE>]
 
 Note:
 
@@ -259,7 +264,7 @@ void printReceipt(string param1, float param2)
 <RValueType> FunctionName(Type [param], Type [param2]);
 ```
 
-Note: In C/C++ simple types or udtyes are passed by value. Arrays are passed by value.
+Note: In C/C++ simple types or user defined types are passed by value. Arrays are passed by value.
 
 Passing by reference create a shared pointer to a value.
 
