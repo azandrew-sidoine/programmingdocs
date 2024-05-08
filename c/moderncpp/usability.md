@@ -331,6 +331,53 @@ int main() {
 
 ## Templates `Black magic of C++`
 
+Templates are utilized at compile time to generate class, function, method or variable based on one more data types.
+
+**Note**
+They are used when multiple variation of the same construct is needed at runtime.
+
+```cpp
+template <typename T>
+class Widget {
+    public:
+        template<typename TMethod>
+        void setName(TMethod data);
+}
+
+template <typename T> // Class template is defined first
+template <typename TMethod> // Class method template comes after the class template
+void Widget<T>::setName(TMethod data)
+{
+    // provides method definition
+}
+
+// Template specialization
+template <typename TMethod>
+void Widget<int>::setName(TMethod data)
+{
+    // Provides a specialization implementation for integer type
+}
+
+// Template class with specialized template
+template <class T>
+class Widget
+{
+
+}
+
+// Specialized template
+// **Note** Only class template can be partially specialized, not method or variable template
+template <class TVector>
+class Widget<std::vector<TVector>>
+{
+
+}
+
+//
+Widget<int> mWidget; // T is int
+Widget<std::vector<T>> mWidget2; // TVector is int
+```
+
 `C++ templates` have always been a `special art of the language`, and templates can even be used `independently as a new language`.
 The philosophy of the template is to `throw all the problems` that can be processed at `compile time` into the compile time, and only deal with those core dynamic services at runtime, to greatly optimize the performance of the runtime.
 
@@ -414,9 +461,13 @@ template<typename... Args> void printf(const std::string &str, Args... args);
 //
 template<typename... Ts>
 void template_func(Ts... args) {
-    std::cout << sizeof(args) << std::endl; // Returns the number of argument passed to the function
+    std::cout << sizeof...(args) << std::endl; // Returns the number of argument passed to the function
 }
 ```
+
+**Note**
+> ...Ts -> Pack the parameters
+> Ts... -> Unpack the parameters
 
 - sizeof...
 

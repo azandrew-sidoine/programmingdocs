@@ -4,6 +4,8 @@
 
 > Design a client billing app for a hospital
 > Design a support app for a cafe in your favorite city
+>
+> Design a musician booking app for a wedding venue in your hometown
 
 ## Empathize with Users
 
@@ -15,26 +17,21 @@ A: Here is a list of question that helps being more empathic:
 
 - Ask a lot of questions
   As a UX designer, you cannot make assumptions about the needs of your users. Instead, ask your users directly about their needs and wants, which your product design can address. Ask questions that begin with what, how, and why to gain a deeper understanding of your users’ perspective.
-
 - Become more observant
-In interviews where the user is physically present or on a video recording, watching a user interact with you or your product can provide physical cues that can affect your research outcomes.
-**Note**
-Take detailed note or even record sessions with users.
-
+  In interviews where the user is physically present or on a video recording, watching a user interact with you or your product can provide physical cues that can affect your research outcomes.
+  **Note**
+  Take detailed note or even record sessions with users.
 - Be an active Listener
-Active listening requires you to fully concentrate on, understand, and remember what is being said by the user you’re interacting with. Avoid getting distracted by where the conversation is going or what you might say next.
-
+  Active listening requires you to fully concentrate on, understand, and remember what is being said by the user you’re interacting with. Avoid getting distracted by where the conversation is going or what you might say next.
 - Request Input
-t’s important that the feedback you receive is objective and unbiased. When asking for feedback, use open-ended questions to understand the user’s actual thoughts on the experience or product.
-**Note**
-Friends or colleagues often provide biased, mostly positive feedback because they want to support or please you.
-
+  t’s important that the feedback you receive is objective and unbiased. When asking for feedback, use open-ended questions to understand the user’s actual thoughts on the experience or product.
+  **Note**
+  Friends or colleagues often provide biased, mostly positive feedback because they want to support or please you.
 - Be open-minded
-We all have biases. Remember, `a bias is favoring or having prejudice against something or someone, based on limited information`.
-You should learn to set your biases aside to better empathize with others.
-
+  We all have biases. Remember, `a bias is favoring or having prejudice against something or someone, based on limited information`.
+  You should learn to set your biases aside to better empathize with others.
 - Keep current on UX research
-Follow researchers and join online communities to stay up-to-date on the research that affects UX designers and the users you’re designing for. Research is always changing and evolving as we understand more about human psychology.
+  Follow researchers and join online communities to stay up-to-date on the research that affects UX designers and the users you’re designing for. Research is always changing and evolving as we understand more about human psychology.
 
 ### Recruiting participant
 
